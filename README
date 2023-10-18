@@ -1,0 +1,15 @@
+使用docker compose方法時 需先執行 
+docker network create puyuan_net --subnet 172.21.0.0/24
+建立虛擬網卡以便固定容器的ipv4
+
+使用docker run方法時 需開啟本地的資料庫ex: mysql
+再執行
+docker run -itd --name puyuan_guni --network=bridge -p 8000:8000 puyuan_gunicorn
+並修改puyuan_case/settings.py中的資料庫設定
+```
+vi puyuan_case/settings.py
+
+:94 (第94行的意思)
+
+HOST: "<本機ipv4>" (改ip)
+```
