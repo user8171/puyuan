@@ -96,7 +96,7 @@ DATABASES = {
         "HOST": "172.21.0.2",
         "PORT": "3306"
         
-        # local ver
+        # docker run & local ver
         # 'ENGINE': 'django.db.backends.mysql',
         # 'NAME': 'puyuan',
         # 'USER': 'iervn6341',

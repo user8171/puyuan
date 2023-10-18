@@ -26,3 +26,7 @@ docker build . -t <image_name>
   HOST: "<本機ipv4>" (改ip) # docker run
   HOST: "<mariadb ipv4>" (改ip) # docker compose
   ```
+
+## 註
+ 請注意!! 在./puyuan_case/settings.py的87行開始的設定,有分docker-compose版與docker run&local版
+ 請注意!! 不管是docker run或docker-compose方法,在docker build前再次確認./Dockerfile的CMD部分
