@@ -9,8 +9,11 @@ RUN pip install -r /data/requirements.txt
 WORKDIR /data
 
 # docker run
+
+# gunicorn ver
 # CMD ["gunicorn", "puyuan_case.wsgi:application", "-b", "0.0.0.0:8000"]
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# normal ver
+# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
 # docker-compose
 # 不需要CMD

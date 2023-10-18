@@ -5,24 +5,25 @@ services:
     ports:
       - 3306:3306
     environment:
-      MARIADB_USER: "iervn6341"
-      MARIADB_PASSWORD: ""
       MARIADB_ROOT_PASSWORD: ""
       MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: True
       MYSQL_DATABASE: puyuan
     networks:
       puyuan_net:
-        ipv4_address: 172.21.0.3
+        ipv4_address: 172.21.0.2
     healthcheck:
       test: mariadb --user=root --password=""
 
   puyuan_main:
-    image: puyuan_dockercompose:latest
+    image: puyuan_ver2:latest
     depends_on:
       mariadb:
         condition: service_healthy
     ports:
       - 8000:8000
+    networks:
+      puyuan_net:
+        ipv4_address: 172.21.0.3
     command:
       - /bin/sh
       - -c
@@ -30,9 +31,6 @@ services:
         python manage.py makemigrations
         python manage.py migrate
         python manage.py runserver 0.0.0.0:8000
-    networks:
-      puyuan_net:
-        ipv4_address: 172.21.0.2
 
 networks:
   puyuan_net:

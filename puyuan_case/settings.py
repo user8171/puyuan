@@ -87,12 +87,22 @@ WSGI_APPLICATION = 'puyuan_case.wsgi.application'
 DATABASES = {
     'default': {
         # mariadb
+        
+        # docker-compose ver
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'puyuan',
-        'USER': 'iervn6341',
+        'USER': 'root',
         "PASSWORD": "",
-        "HOST": "localhost",
-        "PORT": "3306",
+        "HOST": "172.21.0.2",
+        "PORT": "3306"
+        
+        # local ver
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'puyuan',
+        # 'USER': 'iervn6341',
+        # "PASSWORD": "",
+        # "HOST": "localhost",
+        # "PORT": "3306"
     }
 }
 
