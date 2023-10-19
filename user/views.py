@@ -328,13 +328,12 @@ def user_diary_(request):
                         "description": index_data["description"],
                         "meal": index_data["meal"],
                         "tag": eval(index_data["tag"]),
-                        # "image": list(index_data["image"]),
-                        "image": [],
+                        "image": [index_data["image"]],
                         "location": {
                             "lat": str(index_data["lat"]),
                             "lng": str(index_data["lng"])
                         },
-                        "reply": "",
+                        "reply": " s",
                         "recorded_at": datetime.strftime(index_data["recorded_at"], "%Y-%m-%d %H:%M:%S"),
                         "type": "diet",
                         
@@ -600,6 +599,7 @@ def delete_records(request):
             if data == "blood_sugars":
                 blood_sugar = body_data['deleteObject']["blood_sugars"]
                 for index in blood_sugar:
+                    user_share.objects.filter(row_id=index).delete()
                     user_blood_sugar.objects.filter(id=index).delete()
             elif data == "blood_pressures":
                 blood_pressure = body_data['deleteObject']["blood_pressures"]

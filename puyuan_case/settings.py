@@ -89,20 +89,20 @@ DATABASES = {
         # mariadb
         
         # docker-compose ver
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'puyuan',
-        'USER': 'root',
-        "PASSWORD": "",
-        "HOST": "172.21.0.2",
-        "PORT": "3306"
-        
-        # docker run & local ver
         # 'ENGINE': 'django.db.backends.mysql',
         # 'NAME': 'puyuan',
-        # 'USER': 'iervn6341',
+        # 'USER': 'root',
         # "PASSWORD": "",
-        # "HOST": "localhost",
+        # "HOST": "172.21.0.2",
         # "PORT": "3306"
+        
+        # docker run & local ver
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'puyuan',
+        'USER': 'iervn6341',
+        "PASSWORD": "",
+        "HOST": "localhost",
+        "PORT": "3306"
     }
 }
 
