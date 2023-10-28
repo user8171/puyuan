@@ -15,7 +15,8 @@ services:
       test: mariadb --user=root --password=""
 
   puyuan_main:
-    image: puyuan_ver2:latest
+    build:
+      dockerfile: Dockerfile
     depends_on:
       mariadb:
         condition: service_healthy

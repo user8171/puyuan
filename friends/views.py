@@ -92,15 +92,15 @@ def send_request(request):
         
         receiver_id = user_data.objects.filter(
             invite_code=body_data["invite_code"]
-        )
+        ).values()
         sender_id = Session.objects.filter(
             session_key=request.headers.get('Authorization').split(" ")[1]
         )[0].get_decoded()['id']
         
-        if receiver_id == None or sender_id == receiver_id:
+        if len(receiver_id) == 0:
             return JsonResponse({"status": "1", "message": "失敗"}, safe=False)
 
-        receiver_id = receiver_id.values()[0]["id"]
+        receiver_id = receiver_id[0]["id"]
         if user_friend.objects.filter(Q(
             sender_id=sender_id,
             receiver_id=receiver_id

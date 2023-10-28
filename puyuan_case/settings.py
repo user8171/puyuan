@@ -87,7 +87,6 @@ WSGI_APPLICATION = 'puyuan_case.wsgi.application'
 DATABASES = {
     'default': {
         # mariadb
-        
         # docker-compose ver
         # 'ENGINE': 'django.db.backends.mysql',
         # 'NAME': 'puyuan',

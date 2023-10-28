@@ -22,27 +22,27 @@ class user_data(models.Model):
     status = models.CharField(max_length=10, null=True, default="Normal")
     unread_records = models.CharField(max_length=200, null=True, default="[0, 0, 0]")
     badge = models.IntegerField(null=True, default=0)
-    updated_at = models.DateTimeField(null=True, default="1920-1-1")
-    created_at = models.DateTimeField(null=True, default="1920-1-1")
+    updated_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    created_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class validation(models.Model):
     email = models.CharField(max_length=255, null=False, default="")
     code = models.CharField(max_length=6, null=True, default="0")
-    expire_time = models.DateTimeField(null=True, default="1920-1-1")
+    expire_time = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_blood_pressure(models.Model):
     user_id = models.IntegerField(null=True, default=0)
     systolic = models.IntegerField(null=True, default=0)
     diastolic = models.IntegerField(null=True, default=0)
     pulse = models.IntegerField(null=True, default="0")
-    recorded_at = models.DateTimeField(null=True, default="1920-1-1")
+    recorded_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_weight(models.Model):
     user_id = models.IntegerField(null=True, default=0)
     weight = models.FloatField(null=True, default=0)
     body_fat = models.FloatField(null=True, default=0)
     bmi = models.FloatField(null=True, default=0)
-    recorded_at = models.DateTimeField(null=True, default="1920-1-1")
+    recorded_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_blood_sugar(models.Model):
     user_id = models.IntegerField(null=True, default=0)
@@ -50,7 +50,7 @@ class user_blood_sugar(models.Model):
     time_period = models.IntegerField(null=True, default=0)
     drug = models.IntegerField(null=True, default=0)
     exercise = models.IntegerField(null=True, default=0)
-    recorded_at = models.DateTimeField(null=True, default="1920-1-1")
+    recorded_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_default(models.Model):
     user_id = models.IntegerField(null=True, default=0)
@@ -76,8 +76,8 @@ class user_default(models.Model):
     bmi_min = models.IntegerField(null=True, default=0)
     body_fat_max = models.IntegerField(null=True, default=0)
     body_fat_min = models.IntegerField(null=True, default=0)
-    created_at = models.DateTimeField(null=True, default="1920-1-1")
-    updated_at = models.DateTimeField(null=True, default="1920-1-1")
+    created_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    updated_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_diary(models.Model):	
     user_id = models.IntegerField(null=True, default=0)
@@ -87,7 +87,7 @@ class user_diary(models.Model):
     image = models.CharField(max_length=500, null=False, default="")
     lat = models.CharField(max_length=5, null=False, default="")
     lng = models.CharField(max_length=5, null=False, default="")
-    recorded_at = models.DateTimeField(null=True, default="1920-1-1")
+    recorded_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_friend(models.Model):
     sender_id = models.IntegerField(null=True, default=0)
@@ -95,8 +95,8 @@ class user_friend(models.Model):
     status = models.IntegerField(null=True, default=0)
     read = models.IntegerField(null=False, default=0)
     type = models.IntegerField(null=True, default=0)
-    updated_at = models.DateTimeField(null=True, default="1920-1-1")
-    created_at = models.DateTimeField(null=True, default="1920-1-1")
+    updated_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    created_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_share(models.Model):
     user_id = models.IntegerField(null=True, default=0)
@@ -109,16 +109,16 @@ class user_care(models.Model):
     member_id = models.IntegerField(null=True, default=1)
     reply_id = models.IntegerField(null=True, default=None)
     message = models.CharField(max_length=255, null=True, default="")
-    updated_at = models.DateTimeField(null=True, default="1920-1-1")
-    created_at = models.DateTimeField(null=True, default="1920-1-1")
+    updated_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    created_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class news(models.Model):
     member_id = models.IntegerField(null=True, default=0)
     group = models.IntegerField(null=True, default=0)
     message = models.CharField(max_length=255, null=True, default="")
-    pushed_at = models.DateTimeField(null=True, default="1920-1-1")
-    created_at = models.DateTimeField(null=True, default="1920-1-1")
-    updated_at = models.DateTimeField(null=True, default="1920-1-1")
+    pushed_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    created_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    updated_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_medical(models.Model):
     user_id = models.IntegerField(null=True, default=0)
@@ -126,15 +126,15 @@ class user_medical(models.Model):
     oad = models.IntegerField(null=True,default=0)
     insulin = models.IntegerField(null=True,default=0)
     anti_hypertensives = models.IntegerField(null=True,default=0)
-    created_at = models.DateTimeField(null=True, default="1920-1-1")
-    updated_at = models.DateTimeField(null=True, default="1920-1-1")
+    created_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    updated_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_a1c(models.Model):
     user_id = models.IntegerField(null=True, default=0)
     a1c = models.IntegerField(null=True, default=0)
-    recorded_at = models.DateTimeField(null=True, default="1920-1-1")
-    created_at = models.DateTimeField(null=True, default="1920-1-1")
-    updated_at = models.DateTimeField(null=True, default="1920-1-1")
+    recorded_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    created_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    updated_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_settings(models.Model):
     user_id = models.IntegerField(null=True, default=0)
@@ -145,22 +145,22 @@ class user_settings(models.Model):
     unit_of_sugar = models.BooleanField(null=False, default=False)
     unit_of_weight = models.BooleanField(null=False, default=False)
     unit_of_height = models.BooleanField(null=False, default=False)
-    created_at = models.DateTimeField(null=True, default="1920-1-1")
-    updated_at = models.DateTimeField(null=True, default="1920-1-1")
+    created_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    updated_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_drugs(models.Model):
     user_id = models.IntegerField(null=True, default=0)
     type = models.IntegerField(null=False, default=0)
     name = models.CharField(max_length=50, null=True, default="")
-    recorded_at = models.DateTimeField(null=True, default="1920-1-1")
-    updated_at = models.DateTimeField(null=True, default="1920-1-1")
-    created_at = models.DateTimeField(null=True, default="1920-1-1")
+    recorded_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    updated_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    created_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
 
 class user_vip(models.Model):
     user_id = models.IntegerField(null=True, default=0)
     level = models.IntegerField(null=True, default=0)
     remark = models.FloatField(null=True, default=0)
-    started_at = models.DateTimeField(null=True, default="1920-1-1")
-    ended_at = models.DateTimeField(null=True, default="1920-1-1")
-    created_at = models.DateTimeField(null=True, default="1920-1-1")
-    updated_at = models.DateTimeField(null=True, default="1920-1-1")
+    started_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    ended_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    created_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")
+    updated_at = models.DateTimeField(null=True, default="1920-1-1 00:00:00")

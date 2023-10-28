@@ -19,7 +19,7 @@ def profile_setting(request):
         for i in body_data:
             if body_data[i] == "":
                 continue
-            update_data.update(**{i: body_data[i]}, updated_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f"))
+            update_data.update(**{i: body_data[i]}, updated_at=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         output = {"status": "0", "message": "成功"}
 
     if request.method == "GET":
@@ -43,7 +43,7 @@ def profile_setting(request):
                     "fb_id": "未設置",
                     "status": user_data_data["status"],
                     "group": user_data_data["group"],
-                    "birthday": datetime.strftime(user_data_data["birthday"], "%Y-%m-%d %H:%M:%S"),
+                    "birthday": datetime.strftime(user_data_data["birthday"], "%Y-%m-%d"),
                     "height": user_data_data["height"],
                     "weight": user_data_data["weight"],
                     "gender": user_data_data["gender"],
@@ -449,16 +449,17 @@ def cares(request):
                 "id": data["id"],
                 "user_id": get_id,
                 "member_id": 1,
-                "reply_id": "",
+                "reply_id": get_id,
                 "message": data["message"],
                 "created_at":  datetime.strftime(data["created_at"], "%Y-%m-%d %H:%M:%S"),
                 "updated_at": datetime.strftime(data["updated_at"], "%Y-%m-%d %H:%M:%S")
             })
-
+        print(output)
         return JsonResponse(output, safe=False)
 
     if request.method == "POST":
         token = request.headers.get('Authorization').split(" ")[1]
+        get_id = Session.objects.filter(session_key=token)[0].get_decoded()['id']
         
         time_now = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
         user_care.objects.create(
